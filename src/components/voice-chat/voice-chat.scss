@@ -1,0 +1,34 @@
+voice-chat {
+  .gridTela {
+    min-width: 100% !important;
+    min-height: 100% !important;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #000d18;
+  }
+  .gridRowGif {
+    min-height: 100% !important;
+    min-width: 100% !important;
+    margin-top: 30%;
+    background-color: #000d18;
+
+  }
+  .imgGif {
+    min-height: 15em;
+    min-width: 15em;
+    align-items: center;
+    background-color: #000d18;
+  }
+  .footer {
+    position: absolute;
+    min-width: 100% !important;
+    bottom: 0.7em;
+    background-color: #000d18;
+  }
+  
+  .Button{
+    color: #56d4f9;
+  }
+
+  
+}

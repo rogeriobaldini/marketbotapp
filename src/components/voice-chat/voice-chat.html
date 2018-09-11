@@ -1,0 +1,18 @@
+<ion-grid class="gridTela">
+  <ion-row class="gridRowGif">
+    <ion-col>
+      <ion-img #imgGif name="imgGif" class="imgGif" src="{{imgPath}}"></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row class="footer" id="footerRow">
+    <ion-col col-1>
+      <!-- <a class="Button" (click)="pushPage()">...</a> -->
+    </ion-col>
+    <ion-col col-10>
+      <a ion-button clear class="Button" (click)="isWorking ? startListening() : stopListening() ">{{tapOption}}</a>
+    </ion-col>
+    <ion-col col-1></ion-col>
+  </ion-row>
+</ion-grid>
+
+

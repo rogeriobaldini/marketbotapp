@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Orchestrator</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list radio-group>
+
+    <ion-grid>
+      <ion-col>
+        <ion-row>
+          <p>Assistente Genérico</p>
+        </ion-row>
+        <ion-item id="radioGeneric">
+          <ion-label>
+            <p>
+              <b>Usar Watson Conversation</b>
+            </p>
+          </ion-label>
+          <ion-radio (click)="setCampoValor('radio', radioGenericTag.value)" checked="{{generic}}" value="generic" #radioGenericTag></ion-radio>
+        </ion-item>
+        <ion-row>
+          <ion-input placeholder="Username" (ionBlur)="setCampoValor('username', usernameTag.value)" value="{{username}}" #usernameTag></ion-input>
+          <!-- <ion-img class="imgQrCode" src="assets/imgs/qr.png"></ion-img> -->
+        </ion-row>
+        <ion-row>
+          <ion-input type="password" placeholder="Password" (ionBlur)="setCampoValor('password', passwordTag.value)" value="{{password}}"
+            #passwordTag></ion-input>
+          <!-- <ion-img class="imgQrCode" src="assets/imgs/qr.png"></ion-img> -->
+        </ion-row>
+        <ion-row>
+          <ion-input placeholder="Workspace ID" (ionBlur)="setCampoValor('workspaceId', workspaceIdTag.value)" value="{{workspaceId}}"
+            #workspaceIdTag></ion-input>
+          <!-- <ion-img class="imgQrCode" src="assets/imgs/qr.png"></ion-img> -->
+        </ion-row>
+        <ion-row id="rowBee">
+          <p>Assistente Tree Lab</p>
+        </ion-row>
+        <ion-item id="radioBee">
+          <ion-label>
+            <p>
+              <b>Talk to MarketBot</b>
+            </p>
+          </ion-label>
+          <ion-radio (click)="setCampoValor('radio', radioBeeTag.value)" checked="{{bee}}" value="bee" #radioBeeTag></ion-radio>
+        </ion-item>
+        <ion-row>
+          <ion-input type="password" placeholder="Token" (ionBlur)="setCampoValor('token', tokenTag.value)" value="{{token}}" #tokenTag></ion-input>
+        </ion-row>
+      </ion-col>
+    </ion-grid>
+
+  </ion-list>
+</ion-content>

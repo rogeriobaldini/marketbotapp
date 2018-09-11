@@ -1,0 +1,7 @@
+{
+  "name": "MarketBot",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
