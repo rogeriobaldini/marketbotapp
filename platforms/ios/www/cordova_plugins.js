@@ -350,6 +350,14 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-tts.tts",
+    "file": "plugins/cordova-plugin-tts/www/tts.js",
+    "pluginId": "cordova-plugin-tts",
+    "clobbers": [
+      "TTS"
+    ]
+  },
+  {
     "id": "cordova-plugin-uniquedeviceid.UniqueDeviceID",
     "file": "plugins/cordova-plugin-uniquedeviceid/www/uniqueid.js",
     "pluginId": "cordova-plugin-uniquedeviceid",
@@ -379,14 +387,6 @@ module.exports = [
       "cordova.plugins.Keyboard"
     ],
     "runs": true
-  },
-  {
-    "id": "cordova-plugin-tts.tts",
-    "file": "plugins/cordova-plugin-tts/www/tts.js",
-    "pluginId": "cordova-plugin-tts",
-    "clobbers": [
-      "TTS"
-    ]
   }
 ];
 module.exports.metadata = 
@@ -408,12 +408,12 @@ module.exports.metadata =
   "cordova-plugin-speechrecognition": "1.1.2",
   "cordova-plugin-splashscreen": "4.1.0",
   "cordova-plugin-statusbar": "2.4.1",
+  "cordova-plugin-tts": "0.2.3",
   "cordova-plugin-uniquedeviceid": "1.3.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-sqlite-storage": "2.2.0",
   "es6-promise-plugin": "4.2.2",
-  "ionic-plugin-keyboard": "2.2.1",
-  "cordova-plugin-tts": "0.2.3"
+  "ionic-plugin-keyboard": "2.2.1"
 };
 // BOTTOM OF METADATA
 });

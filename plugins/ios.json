@@ -8,72 +8,72 @@
   },
   "installed_plugins": {
     "com-badrit-base64": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "com.hutchind.cordova.plugins.streamingmedia": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-advanced-http": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-android-permissions": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-background-mode": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-file": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-file-transfer": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-media": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-nativeaudio": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-network-information": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-screen-orientation": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-speechrecognition": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-statusbar": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
-    },
-    "cordova-plugin-uniquedeviceid": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
-    },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
-    },
-    "cordova-sqlite-storage": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
-    },
-    "ionic-plugin-keyboard": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     },
     "cordova-plugin-tts": {
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+      "PACKAGE_NAME": "br.com.marketbot"
+    },
+    "cordova-plugin-uniquedeviceid": {
+      "PACKAGE_NAME": "br.com.marketbot"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "br.com.marketbot"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "br.com.marketbot"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "br.com.marketbot"
     }
   },
   "dependent_plugins": {
     "es6-promise-plugin": {
-      "PACKAGE_NAME": "br.com.marketbot.app"
+      "PACKAGE_NAME": "br.com.marketbot"
     }
   }
 }

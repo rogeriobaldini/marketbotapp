@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/MarketBot.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>br.com.marketbot</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.0.7</string>
+		<key>CFBundleVersion</key>
+		<string>1.0.7</string>
+		<key>SigningIdentity</key>
+		<string>iPhone Developer: Rogerio Baldini das Neves (XSWWF36HW9)</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2018-09-11T23:33:00Z</date>
+	<key>Name</key>
+	<string>MarketBot</string>
+	<key>SchemeName</key>
+	<string>MarketBot</string>
+</dict>
+</plist>

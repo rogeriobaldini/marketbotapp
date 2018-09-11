@@ -1219,12 +1219,12 @@ var VoiceChatComponent = (function () {
             }
             case "listenGifIOS": {
                 this.imgPath = "assets/imgs/watson_listen.gif";
-                this.tapOption = "Listening. Click to send...";
+                this.tapOption = "Listening. Type to send...";
                 break;
             }
             case "speakGif": {
                 this.imgPath = "assets/imgs/watson_speak.gif";
-                this.tapOption = "Taking...";
+                this.tapOption = "Talking...";
                 break;
             }
             case "synthesizingGif": {
@@ -1234,12 +1234,12 @@ var VoiceChatComponent = (function () {
             }
             case "waitingGif": {
                 this.imgPath = "assets/imgs/watson_idle.gif";
-                this.tapOption = "Talk to MarketBot!";
+                this.tapOption = "Type here to talk to MarketBot!";
                 break;
             }
             default: {
                 this.imgPath = "assets/imgs/watson_idle.gif";
-                this.tapOption = "Talk to MarketBot!";
+                this.tapOption = "Type here to talk to MarketBot!";
                 this.listening = true;
                 break;
             }
