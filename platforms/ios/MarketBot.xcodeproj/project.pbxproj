@@ -515,6 +515,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = JTD5JEN82D;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -671,6 +672,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = JTD5JEN82D;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -683,6 +686,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = MarketBot;
+				PROVISIONING_PROFILE = "d781739d-3126-4c39-8e0a-cc6c723faab1";
+				PROVISIONING_PROFILE_SPECIFIER = Marketbot;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -696,6 +701,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = JTD5JEN82D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -706,6 +712,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				PRODUCT_NAME = MarketBot;
+				PROVISIONING_PROFILE = "d781739d-3126-4c39-8e0a-cc6c723faab1";
+				PROVISIONING_PROFILE_SPECIFIER = Marketbot;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -28,6 +28,7 @@ import { File, FileEntry } from '@ionic-native/file';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { AlertController } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { Network } from '@ionic-native/network';
     SaveDataProvider,
     AlertController,
     GifChangeProvider,
-    Network
+    Network,
+    TextToSpeech
    ]
 })
 export class AppModule {}

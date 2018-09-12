@@ -13,6 +13,7 @@ webpackJsonp([1],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file_transfer__ = __webpack_require__(357);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gif_change_gif_change__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__save_data_save_data__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_text_to_speech__ = __webpack_require__(358);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -30,8 +31,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CallTtsProvider = (function () {
-    function CallTtsProvider(file, txfr, http, Data, media, gif, platform) {
+    function CallTtsProvider(file, txfr, http, Data, media, gif, platform, tts) {
         this.file = file;
         this.txfr = txfr;
         this.http = http;
@@ -39,51 +41,21 @@ var CallTtsProvider = (function () {
         this.media = media;
         this.gif = gif;
         this.platform = platform;
-        this.checkpointVoice = false;
-        this.checkpointSynthetisize = false;
-        this.cont = 0;
+        this.tts = tts;
     }
     CallTtsProvider.prototype.synthesize = function (text) {
         var _this = this;
-        this.gif.events.publish("gif", "synthesizingGif");
-        var user = "d5eed180-41b0-4fd2-9939-a2b1caf1d630";
-        var password = "ZDCsgYo4Goen";
-        //text = text.replace(/ /g, "%20");
-        text = encodeURI(text);
-        //console.log(text);
-        var url = "stream.watsonplatform.net/text-to-speech/api/v1/synthesize?&accept=audio%2Fmp3&voice=en-US_LisaVoice&text";
-        var path = "https://" + user + ":" + password + "@" + url + "=" + text;
-        var ft = this.txfr.create();
-        console.log('CAMINHO novo: >>>>' + path);
-        var fd = this.file.dataDirectory;
-        if (this.platform.is('ios')) {
-            fd = this.file.tempDirectory;
-        }
-        var fn = 'audio' + new Date().getTime() + '.mp3';
-        console.log('teste >>  ' + fd + fn);
-        ft.download(path, fd + fn).then(function (fe) {
-            console.log(fe.nativeURL.replace(/^file:\/\//, ''));
-            console.log('Length:' + fe.file.length);
-            var song = _this.media.create(fe.nativeURL.replace(/^file:\/\//, ''));
-            song.onStatusUpdate.subscribe(function (MEDIA_STATUS) {
-                if (MEDIA_STATUS == 4) {
-                    _this.gif.events.publish("gif", "waitingGif");
-                }
-            }); // fires when file status changes
-            song.onSuccess.subscribe(function () { return console.log('Action is successful'); });
-            song.onError.subscribe(function (error) { return console.log('Error!', error); });
-            var p1 = new Promise(function () {
-                _this.gif.events.publish("gif", "speakGif");
-                song.release();
-                song.play({ playAudioWhenScreenIsLocked: false });
-            });
-            //if (this.platform.is('ios')) {
-            //fe.remove;
-            //}//
-            _this.file.removeFile(fd, fn);
-        }, function (err) {
-            console.log(JSON.stringify(err));
-        });
+        this.gif.events.publish("gif", "speakGif");
+        this.tts.speak({
+            text: text,
+            locale: 'en-US',
+            rate: 1.5
+        })
+            .then(function () {
+            console.log('Success tts.speak: ' + text);
+            _this.gif.events.publish("gif", "waitingGif");
+        })
+            .catch(function (reason) { return console.log('Success tts.speak: ' + reason); });
     };
     CallTtsProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -93,7 +65,8 @@ var CallTtsProvider = (function () {
             __WEBPACK_IMPORTED_MODULE_7__save_data_save_data__["a" /* SaveDataProvider */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_media__["a" /* Media */],
             __WEBPACK_IMPORTED_MODULE_6__gif_change_gif_change__["a" /* GifChangeProvider */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* Platform */]])
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_native_text_to_speech__["a" /* TextToSpeech */]])
     ], CallTtsProvider);
     return CallTtsProvider;
 }());
@@ -193,7 +166,7 @@ webpackEmptyAsyncContext.id = 168;
 
 var map = {
 	"../pages/config/config.module": [
-		693,
+		694,
 		0
 	]
 };
@@ -219,7 +192,7 @@ module.exports = webpackAsyncContext;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CallChatProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(415);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(136);
@@ -311,7 +284,7 @@ var CallChatProvider = (function () {
 
 /***/ }),
 
-/***/ 358:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -346,7 +319,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 359:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -471,13 +444,13 @@ var CallVoiceProvider = (function () {
 
 /***/ }),
 
-/***/ 361:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(367);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -485,7 +458,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 366:
+/***/ 367:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -500,28 +473,30 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_speech_recognition__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_device__ = __webpack_require__(258);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__directives_autosize_autosize__ = __webpack_require__(412);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_body_text_chat_body_text_chat__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__directives_autosize_autosize__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_body_text_chat_body_text_chat__ = __webpack_require__(414);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_config_config__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_component__ = __webpack_require__(690);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_text_chat_text_chat__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_component__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_text_chat_text_chat__ = __webpack_require__(692);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_call_chat_call_chat__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_voice_chat_voice_chat__ = __webpack_require__(692);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_call_voice_call_voice__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_voice_chat_voice_chat__ = __webpack_require__(693);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_call_voice_call_voice__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_context_chat_context_chat__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_save_data_save_data__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_call_tts_call_tts__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_media__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_file__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_file_transfer__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_network__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_network__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_text_to_speech__ = __webpack_require__(358);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -598,7 +573,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_20__providers_save_data_save_data__["a" /* SaveDataProvider */],
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* AlertController */],
                 __WEBPACK_IMPORTED_MODULE_0__providers_gif_change_gif_change__["a" /* GifChangeProvider */],
-                __WEBPACK_IMPORTED_MODULE_25__ionic_native_network__["a" /* Network */]
+                __WEBPACK_IMPORTED_MODULE_25__ionic_native_network__["a" /* Network */],
+                __WEBPACK_IMPORTED_MODULE_26__ionic_native_text_to_speech__["a" /* TextToSpeech */]
             ]
         })
     ], AppModule);
@@ -609,7 +585,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 412:
+/***/ 413:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -669,7 +645,7 @@ var Autosize = (function () {
 
 /***/ }),
 
-/***/ 413:
+/***/ 414:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1002,7 +978,7 @@ var ContextChatProvider = (function () {
 
 /***/ }),
 
-/***/ 690:
+/***/ 691:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1011,7 +987,7 @@ var ContextChatProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(359);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1049,7 +1025,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 691:
+/***/ 692:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1089,7 +1065,7 @@ var TextChatComponent = (function () {
 
 /***/ }),
 
-/***/ 692:
+/***/ 693:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1098,12 +1074,12 @@ var TextChatComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_speech_recognition__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_call_voice_call_voice__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_call_voice_call_voice__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_call_tts_call_tts__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_config_config__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_context_chat_context_chat__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_gif_change_gif_change__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_network__ = __webpack_require__(361);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1271,5 +1247,5 @@ var VoiceChatComponent = (function () {
 
 /***/ })
 
-},[361]);
+},[362]);
 //# sourceMappingURL=main.js.map
