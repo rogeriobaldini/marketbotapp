@@ -29,7 +29,7 @@ export class CallTtsProvider {
 
     this.tts.speak({
       text: text,
-      locale: 'en-US',
+      locale: 'pt-BR',
       rate: 1.5
     })
       .then(() => {

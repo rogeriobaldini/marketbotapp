@@ -48,7 +48,7 @@ var CallTtsProvider = (function () {
         this.gif.events.publish("gif", "speakGif");
         this.tts.speak({
             text: text,
-            locale: 'en-US',
+            locale: 'pt-BR',
             rate: 1.5
         })
             .then(function () {
@@ -403,7 +403,7 @@ var CallVoiceProvider = (function () {
         }
         var options = {
             // Android only
-            language: 'en-US',
+            language: 'pt-BR',
             showPopup: false // Android only 
         };
         //debugger;
@@ -1185,37 +1185,37 @@ var VoiceChatComponent = (function () {
         switch (call) {
             case "classfyingGif": {
                 this.imgPath = "assets/imgs/watson_think.gif";
-                this.tapOption = "Classifying";
+                this.tapOption = "Classificando...";
                 break;
             }
             case "listenGif": {
                 this.imgPath = "assets/imgs/watson_listen.gif";
-                this.tapOption = "Listening...";
+                this.tapOption = "Ouvindo...";
                 break;
             }
             case "listenGifIOS": {
                 this.imgPath = "assets/imgs/watson_listen.gif";
-                this.tapOption = "Listening. Type to send...";
+                this.tapOption = "Ouvindo. Clique para enviar...";
                 break;
             }
             case "speakGif": {
                 this.imgPath = "assets/imgs/watson_speak.gif";
-                this.tapOption = "Talking...";
+                this.tapOption = "Falando...";
                 break;
             }
             case "synthesizingGif": {
                 this.imgPath = "assets/imgs/watson_think.gif";
-                this.tapOption = "Synthetizing...";
+                this.tapOption = "Sintetizando...";
                 break;
             }
             case "waitingGif": {
                 this.imgPath = "assets/imgs/watson_idle.gif";
-                this.tapOption = "Type here to talk to MarketBot!";
+                this.tapOption = "Clique para falar com o MarketBot!";
                 break;
             }
             default: {
                 this.imgPath = "assets/imgs/watson_idle.gif";
-                this.tapOption = "Type here to talk to MarketBot!";
+                this.tapOption = "Clique para falar com o MarketBot!";
                 this.listening = true;
                 break;
             }

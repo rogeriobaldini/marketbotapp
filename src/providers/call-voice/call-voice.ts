@@ -36,7 +36,7 @@ export class CallVoiceProvider {
 
     let options = {
       // Android only
-      language: 'en-US',
+      language: 'pt-BR',
       showPopup: false  // Android only 
     }
       //debugger;
